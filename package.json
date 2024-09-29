@@ -1,0 +1,15 @@
+{
+  "name": "USDA",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "USDA.mjs",
+  "dependencies": {
+    "antlr4": "^4.13.2"
+  },
+  "scripts": {
+    "start": "antlr4 USDA.g4 -Dlanguage=JavaScript -visitor",
+    "parse": "find OpenUSD -name '*.usda' | xargs -L 1 node USDA.mjs"
+
+  }
+}
