@@ -13,11 +13,13 @@ public class USDA {
 	    parser.getInterpreter().setPredictionMode(PredictionMode.SLL);
 	    try {
 		parser.usdFile();  // STAGE 1
+		System.err.println();
 	    } catch (Exception ex) {
 		tokens.reset(); // rewind input stream
 		parser.reset();
 		parser.getInterpreter().setPredictionMode(PredictionMode.LL);
 		parser.usdFile();  // STAGE 2
+		System.err.println();
 		// if we parse ok, it's LL not SLL
 	    }
 	}
