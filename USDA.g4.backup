@@ -22,8 +22,7 @@ statement
     | resource
     | resources
     | subLayer
-    | variants
-    | dictionary
+    | variantSet
     ;
 
 prim : 'def' primType? primName ('(' inherits ')')? primBody?;
@@ -33,16 +32,13 @@ primType : IDENTIFIER;
 primName : STRING | IDENTIFIER;
 
 inherits : IDENTIFIER (',' IDENTIFIER)*
-         | statement*
-	 | '{' statement* '}'
-    	 | 'payload' '=' (resource | resources | closeTag);
+         | statement*;
 
 primBody : '{' primStatement* '}';
 
 primStatement
     : prim
-    | variants
-    | dictionary
+    | variantSet
     | reference
     | customData
     | comment
@@ -60,19 +56,21 @@ value
     | STRING
     | IDENTIFIER
     | arrayValue
-    | dictionaryValue
+    | '{' (keyValuePair (',' keyValuePair)*)? '}'
     | timeSample
     | resource
     | resources
     | closeTag
-    | STRING? '(' value (',' value)* ')'
+    | '(' value (',' value)* ')'
     ;
 
 operation : 'prepend';
 
 resources : '[' resource (',' resource)* ']';
 
-resource : '@' RESOURCE '@' closeTag?;
+resource : '@' RESOURCE extension? '@' closeTag?;
+
+extension : ( '.usda' | '.usd' | '.drc');
 
 references : operation? 'references' '=' (resource | resources | closeTag);
 
@@ -90,11 +88,9 @@ timeSample : '{' timeSampleItem+ '}';
 
 timeSampleItem : NUMBER ':' value ','?;
 
-variants : 'variants' IDENTIFIER? '=' '{' variant+ '}';
+variantSet : 'variantSet' IDENTIFIER '=' '{' variant+ '}';
 
 variant : 'variant' STRING '=' '{' statement* '}';
-
-dictionary : 'dictionary' (IDENTIFIER | STRING) '=' '{' statement* '}';
 
 reference : 'rel' IDENTIFIER '=' (IDENTIFIER | STRING);
 
@@ -111,6 +107,7 @@ metadata : IDENTIFIER ('=' value)?;
 comment : COMMENT;
 
 type : (('Vec3f' | 'PointIndex' | 'dictionary' | 'string' | 'int' | 'token' | 'float' | 'asset' | 'double' | 'float3' | 'color3f' | 'uniform')+ ARRAY?); 
+
 
 // Lexer Rules
 ARRAY : '[]';

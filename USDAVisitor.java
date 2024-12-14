@@ -16,6 +16,18 @@ public interface USDAVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUsdFile(USDAParser.UsdFileContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link USDAParser#header}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHeader(USDAParser.HeaderContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link USDAParser#version}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVersion(USDAParser.VersionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link USDAParser#layer}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -82,6 +94,42 @@ public interface USDAVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitValue(USDAParser.ValueContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link USDAParser#operation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOperation(USDAParser.OperationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link USDAParser#resources}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitResources(USDAParser.ResourcesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link USDAParser#resource}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitResource(USDAParser.ResourceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link USDAParser#references}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReferences(USDAParser.ReferencesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link USDAParser#payload}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPayload(USDAParser.PayloadContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link USDAParser#closeTag}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCloseTag(USDAParser.CloseTagContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link USDAParser#arrayValue}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -112,17 +160,23 @@ public interface USDAVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTimeSampleItem(USDAParser.TimeSampleItemContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link USDAParser#variantSet}.
+	 * Visit a parse tree produced by {@link USDAParser#variants}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVariantSet(USDAParser.VariantSetContext ctx);
+	T visitVariants(USDAParser.VariantsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link USDAParser#variant}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitVariant(USDAParser.VariantContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link USDAParser#dictionary}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDictionary(USDAParser.DictionaryContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link USDAParser#reference}.
 	 * @param ctx the parse tree
@@ -165,4 +219,10 @@ public interface USDAVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitComment(USDAParser.CommentContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link USDAParser#type}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitType(USDAParser.TypeContext ctx);
 }

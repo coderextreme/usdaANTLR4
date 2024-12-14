@@ -17,6 +17,26 @@ public interface USDAListener extends ParseTreeListener {
 	 */
 	void exitUsdFile(USDAParser.UsdFileContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link USDAParser#header}.
+	 * @param ctx the parse tree
+	 */
+	void enterHeader(USDAParser.HeaderContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#header}.
+	 * @param ctx the parse tree
+	 */
+	void exitHeader(USDAParser.HeaderContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link USDAParser#version}.
+	 * @param ctx the parse tree
+	 */
+	void enterVersion(USDAParser.VersionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#version}.
+	 * @param ctx the parse tree
+	 */
+	void exitVersion(USDAParser.VersionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link USDAParser#layer}.
 	 * @param ctx the parse tree
 	 */
@@ -127,6 +147,66 @@ public interface USDAListener extends ParseTreeListener {
 	 */
 	void exitValue(USDAParser.ValueContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link USDAParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void enterOperation(USDAParser.OperationContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#operation}.
+	 * @param ctx the parse tree
+	 */
+	void exitOperation(USDAParser.OperationContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link USDAParser#resources}.
+	 * @param ctx the parse tree
+	 */
+	void enterResources(USDAParser.ResourcesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#resources}.
+	 * @param ctx the parse tree
+	 */
+	void exitResources(USDAParser.ResourcesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link USDAParser#resource}.
+	 * @param ctx the parse tree
+	 */
+	void enterResource(USDAParser.ResourceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#resource}.
+	 * @param ctx the parse tree
+	 */
+	void exitResource(USDAParser.ResourceContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link USDAParser#references}.
+	 * @param ctx the parse tree
+	 */
+	void enterReferences(USDAParser.ReferencesContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#references}.
+	 * @param ctx the parse tree
+	 */
+	void exitReferences(USDAParser.ReferencesContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link USDAParser#payload}.
+	 * @param ctx the parse tree
+	 */
+	void enterPayload(USDAParser.PayloadContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#payload}.
+	 * @param ctx the parse tree
+	 */
+	void exitPayload(USDAParser.PayloadContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link USDAParser#closeTag}.
+	 * @param ctx the parse tree
+	 */
+	void enterCloseTag(USDAParser.CloseTagContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#closeTag}.
+	 * @param ctx the parse tree
+	 */
+	void exitCloseTag(USDAParser.CloseTagContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link USDAParser#arrayValue}.
 	 * @param ctx the parse tree
 	 */
@@ -177,15 +257,15 @@ public interface USDAListener extends ParseTreeListener {
 	 */
 	void exitTimeSampleItem(USDAParser.TimeSampleItemContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link USDAParser#variantSet}.
+	 * Enter a parse tree produced by {@link USDAParser#variants}.
 	 * @param ctx the parse tree
 	 */
-	void enterVariantSet(USDAParser.VariantSetContext ctx);
+	void enterVariants(USDAParser.VariantsContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link USDAParser#variantSet}.
+	 * Exit a parse tree produced by {@link USDAParser#variants}.
 	 * @param ctx the parse tree
 	 */
-	void exitVariantSet(USDAParser.VariantSetContext ctx);
+	void exitVariants(USDAParser.VariantsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link USDAParser#variant}.
 	 * @param ctx the parse tree
@@ -196,6 +276,16 @@ public interface USDAListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitVariant(USDAParser.VariantContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link USDAParser#dictionary}.
+	 * @param ctx the parse tree
+	 */
+	void enterDictionary(USDAParser.DictionaryContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#dictionary}.
+	 * @param ctx the parse tree
+	 */
+	void exitDictionary(USDAParser.DictionaryContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link USDAParser#reference}.
 	 * @param ctx the parse tree
@@ -266,4 +356,14 @@ public interface USDAListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitComment(USDAParser.CommentContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link USDAParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void enterType(USDAParser.TypeContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link USDAParser#type}.
+	 * @param ctx the parse tree
+	 */
+	void exitType(USDAParser.TypeContext ctx);
 }
